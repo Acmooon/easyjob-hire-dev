@@ -1,0 +1,26 @@
+server:
+  port: 7001
+  tomcat:
+    uri-encoding: UTF-8
+    max-swallow-size: -1
+
+spring:
+  profiles:
+    active: dev
+  banner:
+    location: classpath:banner/banner.txt # classpath指resources目录
+    # image:
+    #   location: banner/ask.jpg
+
+# 配置日志级别
+logging:
+  level:
+    root: info
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml  # 匹配类路径下所有的mapper.xml文件（注意 classpath 和 classpath* 的区别）
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID # 主键策略 - 分布式，高并发可用性能 - 使用雪花算法（还有assign_uuid, auto, input, none)
+    banner: false        # 不展示banner图
+
