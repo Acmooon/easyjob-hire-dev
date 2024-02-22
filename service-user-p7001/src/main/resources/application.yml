@@ -11,6 +11,8 @@ spring:
     location: classpath:banner/banner.txt # classpath指resources目录
     # image:
     #   location: banner/ask.jpg
+  application:
+    name: user-service
 
 # 配置日志级别
 logging:
