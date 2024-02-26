@@ -1,6 +1,7 @@
 package com.acmoon.easyjob.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class HelloController {
 
+    @Autowired
+    private StuService stuService;
+
+    @Value("${server.port}") // 读取配置文件中的端口号
+    private String serverPort;
+
     @GetMapping("hello")
     public Object hello() {
 
@@ -27,6 +34,8 @@ public class HelloController {
         log.debug("debug: " + stu.toString());
         log.warn("warn: " + stu.toString());
         log.error("error: {}", stu.toString());
+
+        log.info("lb test 当前端口号为：" + serverPort );
 
         return "Hello User Service~";
     }
@@ -44,8 +53,6 @@ public class HelloController {
         
     }
 
-    @Autowired
-    private StuService stuService;
 
     @GetMapping("stu")
     public Object getStu() {

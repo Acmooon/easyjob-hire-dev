@@ -5,8 +5,8 @@ server:
     max-swallow-size: -1
 
 spring:
-  # profiles:
-  #   active: dev
+  profiles:
+    active: dev
   banner:
     location: classpath:banner/banner.txt # classpath指resources目录
     # image:

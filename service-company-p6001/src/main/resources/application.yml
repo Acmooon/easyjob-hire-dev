@@ -5,7 +5,7 @@ server:
     max-swallow-size: -1
 
 spring:
-  # profiles:
-  #   active: dev
+  profiles:
+    active: dev
   application:
     name: company-service
